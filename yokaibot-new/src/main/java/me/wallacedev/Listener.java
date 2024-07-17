@@ -2,39 +2,20 @@ package me.wallacedev;
 
 import org.jetbrains.annotations.NotNull;
 
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.EmbedBuilder;
+
+import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.session.ReadyEvent;
+
 
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+
+import net.dv8tion.jda.api.interactions.modals.ModalMapping;
 
 public class Listener extends ListenerAdapter {
 
 
-    @Override
-    public void onReady(@NotNull ReadyEvent event) {
-        JDA jda = event.getJDA();
-        Guild guild = jda.getGuildById(1262420280475648070L);
-        
-        if (guild != null) {
-            guild.upsertCommand("soma", "Informe dois números para soma")
-            .addOptions(new OptionData(OptionType.INTEGER, "num1", "the first number ", true )
-            .setMinValue(1)
-            .setMaxValue(100),
-            
 
-            new OptionData(OptionType.INTEGER, "num2", "the second number ", true)
-            .setMinValue(1)
-            .setMaxValue(100)
-
-            ).queue();
-        } else {
-            System.out.println("Guild not found");
-        }
-    }
         @Override
     public void onButtonInteraction(@NotNull ButtonInteractionEvent event) {
         if(event.getButton().getId().equals("yes-button")) {
@@ -43,6 +24,32 @@ public class Listener extends ListenerAdapter {
             event.reply("Ahh slk fala a verdade ai ").queue();
         }
         event.getMessage().delete().queue();
+    }
+    @Override
+    public void onModalInteraction(@NotNull ModalInteractionEvent event) {
+        if(event.getModalId().equals("person-modal")) {
+            ModalMapping nameValue = event.getValue("name-field");
+            ModalMapping ageValue = event.getValue("age-field");
+            ModalMapping descriptionValue = event.getValue("description-field");
+
+            String name = nameValue.getAsString();
+            String description = descriptionValue.getAsString();
+
+            String age;
+            if(ageValue.getAsString().isEmpty()) {
+                age = "N/A";
+            } else {
+                age = ageValue.getAsString();
+            }
+
+            EmbedBuilder builder = new EmbedBuilder();
+            builder.setTitle(name);
+            builder.setDescription("Um pouco sobre " + name);
+            builder.addField("Name", name, false);
+            builder.addField("Age", age, false);
+            builder.addField("Description", description, false);
+            event.replyEmbeds(builder.build()).queue();
+        }
     }
 }
 
