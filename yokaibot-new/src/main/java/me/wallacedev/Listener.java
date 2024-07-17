@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
-
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -34,6 +34,15 @@ public class Listener extends ListenerAdapter {
         } else {
             System.out.println("Guild not found");
         }
+    }
+        @Override
+    public void onButtonInteraction(@NotNull ButtonInteractionEvent event) {
+        if(event.getButton().getId().equals("yes-button")) {
+            event.reply("esse mlk sabe o que fala ").queue();
+        } else if(event.getButton().getId().equals("no-button")) {
+            event.reply("Ahh slk fala a verdade ai ").queue();
+        }
+        event.getMessage().delete().queue();
     }
 }
 
