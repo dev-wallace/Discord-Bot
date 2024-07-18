@@ -14,7 +14,7 @@ public class Sum implements ICommand {
 
     @Override
     public String getName() {
-        return "soma";
+        return "sum";
     }
 
     @Override
@@ -25,10 +25,10 @@ public class Sum implements ICommand {
     @Override
     public List<OptionData> getOptions() {
         List<OptionData> data = new ArrayList<>();
-        data.add(new OptionData(OptionType.INTEGER, "numero 1 ", "O primeiro número", true)
+        data.add(new OptionData(OptionType.INTEGER, "number1", "O primeiro número", true)
                         .setMinValue(1)
                         .setMaxValue(100));
-        data.add(new OptionData(OptionType.INTEGER, "numero 2 ", "O segundo número", true)
+        data.add(new OptionData(OptionType.INTEGER, "number2", "O segundo número", true)
                         .setMinValue(1)
                         .setMaxValue(100));
         return data;

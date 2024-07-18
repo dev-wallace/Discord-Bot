@@ -23,8 +23,14 @@ public class Listener extends ListenerAdapter {
         } else if(event.getButton().getId().equals("no-button")) {
             event.reply("Ahh slk fala a verdade ai ").queue();
         }
+        if(event.getButton().getId().equals("role-button-yes")) {
+            event.reply("Parabens guerreiro por mostrar seu respeito ao podero yokaiBot").queue();
+        } else if(event.getButton().getId().equals("role-button-no")) {
+            event.reply("ta... fica sem cargo ai colega, hehe charmander char!!!!!").queue();
+        }
         event.getMessage().delete().queue();
     }
+
     @Override
     public void onModalInteraction(@NotNull ModalInteractionEvent event) {
         if(event.getModalId().equals("person-modal")) {
