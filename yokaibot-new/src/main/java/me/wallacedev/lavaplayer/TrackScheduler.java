@@ -1,3 +1,11 @@
+/**
+ * Esta classe é responsável por agendar e controlar a reprodução de faixas de áudio.
+ * 
+ * Usa uma fila (BlockingQueue) para armazenar faixas que devem ser tocadas após a faixa atual.
+ * O TrackScheduler também possui uma lógica para repetir a faixa atual se a opção de repetição estiver ativada
+ * e para iniciar a reprodução da próxima faixa na fila quando a faixa atual terminar.
+ */
+
 package me.wallacedev.lavaplayer;
 
 

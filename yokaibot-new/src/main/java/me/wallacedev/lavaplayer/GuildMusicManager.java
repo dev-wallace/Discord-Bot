@@ -1,4 +1,13 @@
-package me.wallacedev.lavaplayer;
+/**
+ * Esta classe gerencia o player de áudio e o encaminhador de áudio para uma guilda específica.
+ * 
+ * Ela cria uma instância de AudioPlayer e TrackScheduler, e também inicializa o AudioForwarder.
+ * O AudioPlayer é responsável pela reprodução de áudio, o TrackScheduler gerencia a fila de faixas
+ * e o AudioForwarder lida com o envio de áudio para o Discord.
+ */
+
+ package me.wallacedev.lavaplayer;
+
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;

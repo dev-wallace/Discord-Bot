@@ -1,5 +1,12 @@
-package me.wallacedev.lavaplayer;
+/**
+ * Esta classe é responsável por gerenciar e fornecer instâncias de GuildMusicManager para diferentes guildas.
+ * 
+ * Usa um mapa para armazenar e recuperar gerenciadores de música baseados na ID da guilda.
+ * O PlayerManager também registra fontes de áudio e cria novos gerenciadores de música quando necessário,
+ * além de carregar e tocar faixas usando o AudioPlayerManager.
+ */
 
+ package me.wallacedev.lavaplayer;
 import java.util.Map;
 import java.util.HashMap;
 

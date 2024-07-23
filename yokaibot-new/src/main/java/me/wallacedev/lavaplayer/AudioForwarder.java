@@ -1,4 +1,14 @@
+/**
+ * Esta classe lida com o envio de áudio do AudioPlayer para o canal de voz do Discord.
+ * 
+ * Implementa a interface AudioSendHandler, que exige métodos para fornecer áudio a cada 20 ms e verificar
+ * se o áudio pode ser fornecido. O AudioForwarder gerencia o buffer de áudio e a conexão com o canal de voz,
+ * e fecha a conexão se não houver áudio disponível por um tempo especificado.
+ */
+
 package me.wallacedev.lavaplayer;
+
+
 
 import java.nio.ByteBuffer;
 
@@ -29,9 +39,10 @@ public class AudioForwarder implements AudioSendHandler {
         boolean canProvide = player.provide(frame);
         if (!canProvide) {
             time += 20;
-            if (time >= 300000) { // 5 minutes
+            if (time >= 300000) { // 5 minutos
                 time = 0;
                 guild.getAudioManager().closeAudioConnection();
+                System.out.println("Fechando conexão de áudio por inatividade.");
             }
         } else {
             time = 0;
@@ -43,7 +54,9 @@ public class AudioForwarder implements AudioSendHandler {
     @Override
     public ByteBuffer provide20MsAudio() {
         buffer.flip();
-        return buffer.duplicate();
+        ByteBuffer audioData = buffer.slice();
+        buffer.clear();
+        return audioData;
     }
 
     @Override
@@ -51,4 +64,3 @@ public class AudioForwarder implements AudioSendHandler {
         return true;
     }
 }
-
