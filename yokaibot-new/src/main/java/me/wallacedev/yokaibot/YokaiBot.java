@@ -9,9 +9,8 @@ import javax.security.auth.login.LoginException;
 
 import me.wallacedev.CommandManager;
 import me.wallacedev.Listener;
-
 import me.wallacedev.commands.*;
-import me.wallacedev.commands.music.Play;
+import me.wallacedev.commands.music.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -26,14 +25,6 @@ public class YokaiBot {
         
        
         JDA jda = JDABuilder.createDefault(token, EnumSet.allOf(GatewayIntent.class)).build();
-
-      
-        
-
-
-        
-      
-        
       
         CommandManager manager = new CommandManager();
         manager.add(new Embed());
@@ -44,6 +35,11 @@ public class YokaiBot {
         manager.add(new Mute());
         manager.add(new Unmute());
         manager.add(new Play()); 
+          manager.add(new Skip());
+        manager.add(new Stop());
+        manager.add(new NowPlaying());
+        manager.add(new Queue());
+        manager.add(new Repeat());
 
         
         jda.addEventListener(manager);
