@@ -111,8 +111,9 @@ Para instalar e rodar o bot, siga os seguintes passos:
 1. **Clone o repositório:**
 
    ```bash
-   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/dev-wallace/Discord-Bot.git)
-  
+   git clone https://github.com/dev-wallace/Discord-Bot.git
+   cd Discord-Bot
+
 
 
 
