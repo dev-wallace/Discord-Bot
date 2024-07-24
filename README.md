@@ -1,29 +1,26 @@
-# Discord Bot - YokaiBot
-
-
 # Wallace Dev Bot
 
 Bem-vindo ao Wallace Dev Bot! Este projeto é um bot para Discord que utiliza a biblioteca JDA e Lavalink para fornecer funcionalidades avançadas, como reprodução de músicas e gerenciamento de permissões de usuário em servidores Discord.
 
 ## Funcionalidades
 
-O bot possui várias funcionalidades, divididas em comandos que você pode utilizar para interagir com o bot no Discord:
+O bot possui várias funcionalidades, divididas em comandos que você pode utilizar para interagir com o bot no Discord.
 
 ### Comandos de Música
 
 - **`/play [nome]`**: Toca a música especificada. Pode ser uma URL ou uma busca no YouTube. O bot se conectará ao canal de voz onde você está, se necessário.
-  
 - **`/nowplaying`**: Exibe a música que está sendo reproduzida atualmente no canal de voz.
-  
 - **`/skip`**: Pula a música atual e passa para a próxima na fila.
-  
 - **`/stop`**: Para a reprodução de música e limpa a fila de músicas.
-  
 - **`/queue`**: Mostra a fila de músicas que está agendada para reprodução.
-  
 - **`/repeat`**: Alterna a repetição da música atual. Se ativado, a música atual será repetida até que o comando seja desativado.
 
-- ## Gerenciamento de Áudio
+### Comandos de Gerenciamento
+
+- **`/mute [usuário]`**: Muta um usuário específico se você tiver a permissão necessária.
+- **`/unmute [usuário]`**: Desmuta um usuário específico se você tiver a permissão necessária.
+
+## Gerenciamento de Áudio
 
 O gerenciamento de áudio no bot é realizado através de várias classes que trabalham juntas para fornecer uma experiência de reprodução de música fluida e eficiente.
 
@@ -59,19 +56,17 @@ Lida com o envio de áudio do `AudioPlayer` para o canal de voz do Discord. Impl
   - Envia o áudio do `AudioPlayer` para o canal de voz do Discord.
   - Gerencia o buffer de áudio e a conexão com o canal de voz.
 
-### Comandos de Gerenciamento
-
 ## Gerenciamento de Interações
 
 Além dos comandos básicos, o bot também suporta interações avançadas com o Discord, como botões e modais.
 
 ### Manager
 
-O `Manager` coordena várias interações do bot, incluindo a configuração de botões e modais. Ele garante que as interações sejam gerenciadas de forma eficiente e que as ações dos usuários sejam processadas corretamente.
+Coordena várias interações do bot, incluindo a configuração de botões e modais. Garante que as interações sejam gerenciadas de forma eficiente e que as ações dos usuários sejam processadas corretamente.
 
 ### Embed
 
-A classe `Embed` é responsável pela criação e formatação de mensagens enriquecidas (embeds) enviadas pelo bot. Essas mensagens podem incluir informações detalhadas, imagens e outros elementos visuais.
+Cria e formata mensagens enriquecidas (embeds) enviadas pelo bot. Essas mensagens podem incluir informações detalhadas, imagens e outros elementos visuais.
 
 - **Funções principais:**
   - Cria e formata mensagens enriquecidas.
@@ -79,7 +74,7 @@ A classe `Embed` é responsável pela criação e formatação de mensagens enri
 
 ### Buttons
 
-Os `Buttons` permitem a criação de botões interativos nas mensagens. Eles permitem que os usuários realizem ações diretamente a partir das mensagens enviadas pelo bot.
+Permite a criação de botões interativos nas mensagens. Eles permitem que os usuários realizem ações diretamente a partir das mensagens enviadas pelo bot.
 
 - **Funções principais:**
   - Cria botões interativos.
@@ -87,7 +82,7 @@ Os `Buttons` permitem a criação de botões interativos nas mensagens. Eles per
 
 ### Modals
 
-Os `Modals` são formulários interativos que permitem a coleta de informações dos usuários em uma interface de entrada mais complexa. Eles são usados para obter dados detalhados ou opções do usuário.
+Formulários interativos que permitem a coleta de informações dos usuários em uma interface de entrada mais complexa. São usados para obter dados detalhados ou opções do usuário.
 
 - **Funções principais:**
   - Cria e exibe modais para coleta de informações.
@@ -95,7 +90,7 @@ Os `Modals` são formulários interativos que permitem a coleta de informações
 
 ### Sum
 
-A classe `Sum` é usada para realizar operações matemáticas básicas, como a soma de valores. Pode ser usada para cálculos e análises simples dentro do bot.
+Realiza operações matemáticas básicas, como a soma de valores. Pode ser usada para cálculos e análises simples dentro do bot.
 
 - **Funções principais:**
   - Realiza operações matemáticas básicas.
@@ -103,16 +98,21 @@ A classe `Sum` é usada para realizar operações matemáticas básicas, como a 
 
 ### Roles
 
-A classe `Roles` gerencia permissões e atribuições de cargos (roles) para usuários dentro do servidor Discord. Permite a adição e remoção de cargos, bem como a verificação das permissões dos usuários.
+Gerencia permissões e atribuições de cargos (roles) para usuários dentro do servidor Discord. Permite a adição e remoção de cargos, bem como a verificação das permissões dos usuários.
 
 - **Funções principais:**
   - Adiciona e remove cargos de usuários.
   - Verifica e gerencia permissões de usuários.
-- **`/unmute [usuário]`**: Desmuta um usuário específico se você tiver a permissão necessária.
-  
-- **`/mute [usuário]`**: Muta um usuário específico se você tiver a permissão necessária.
 
+## Instalação
 
+Para instalar e rodar o bot, siga os seguintes passos:
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+   cd SEU_REPOSITORIO
 
 
 
